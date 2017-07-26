@@ -13,12 +13,12 @@ module Admin
       end
 
       def update
-        @[{plural-coinname}].process!
+        @[{singular-coinname}].process!
         redirect_to :back, notice: t('.notice')
       end
 
       def destroy
-        @[{plural-coinname}].reject!
+        @[{singular-coinname}].reject!
         redirect_to :back, notice: t('.notice')
       end
     end
