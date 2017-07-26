@@ -44,8 +44,8 @@
 
 (defn -main
   [& args]
-  (let [coinname "metaverse"
-        coinsym  "cpc"]
+  (let [coinname "ethereum"
+        coinsym  "eth"]
     ; new
     (genfile "app:controllers:private:withdraws:plural_coinname_controller.rb" coinname coinsym)
     (genfile "app:controllers:private:deposits:plural_coinname_controller.rb" coinname coinsym)
