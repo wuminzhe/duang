@@ -42,10 +42,16 @@
         { :tag-open \[
           :tag-close \]}))))
 
+; 除了下面的，还有国际化文件要添加
+; banks.yml
+; client.zh-CN.yml: zh-CN.funds.deposit_atm.title
+; client.zh-CN.yml: zh-CN.funds.withdraw_atm.title
+; client.zh-CN.yml: zh-CN.markets.market_list.atm
+; server.zh-CN.yml: zh-CN.market.currency.atm
 (defn -main
   [& args]
-  (let [coinname "ethereum"
-        coinsym  "eth"]
+  (let [coinname "attention"
+        coinsym  "atm"]
     ; new
     (genfile "app:controllers:private:withdraws:plural_coinname_controller.rb" coinname coinsym)
     (genfile "app:controllers:private:deposits:plural_coinname_controller.rb" coinname coinsym)
@@ -67,4 +73,5 @@
     (genfile "app:controllers:private:assets_controller.rb~" coinname coinsym)
     (genfile "app:views:private:assets:_liability_tabs.html.slim~" coinname coinsym)
     (genfile "app:views:private:assets:index.html.slim~" coinname coinsym)
-    (genfile "public:templates:funds:deposit.html~" coinname coinsym)))
+    (genfile "public:templates:funds:deposit.html~" coinname coinsym)
+    (genfile "public:templates:funds:withdraw.html~" coinname coinsym)))
