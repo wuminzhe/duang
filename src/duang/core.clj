@@ -43,15 +43,19 @@
           :tag-close \]}))))
 
 ; 除了下面的，还有国际化文件要添加
-; banks.yml
 ; client.zh-CN.yml: zh-CN.funds.deposit_atm.title
 ; client.zh-CN.yml: zh-CN.funds.withdraw_atm.title
 ; client.zh-CN.yml: zh-CN.markets.market_list.atm
 ; server.zh-CN.yml: zh-CN.market.currency.atm
+; config/currencies.yml
+; config/deposit_channels.yml
+; config/withdraw_channels.yml
+; 图标
+; Handler
 (defn -main
   [& args]
-  (let [coinname "attention"
-        coinsym  "atm"]
+  (let [coinname "litecoin"
+        coinsym  "ltc"]
     ; new
     (genfile "app:controllers:private:withdraws:plural_coinname_controller.rb" coinname coinsym)
     (genfile "app:controllers:private:deposits:plural_coinname_controller.rb" coinname coinsym)
@@ -63,15 +67,15 @@
     (genfile "public:templates:funds:deposit_coinsym.html" coinname coinsym)
     (genfile "public:templates:funds:withdraw_coinsym.html" coinname coinsym)
     ; new admin
-    (genfile "app:controllers:admin:withdraws:plural_coinname_controller.rb" coinname coinsym)
     (genfile "app:controllers:admin:deposits:plural_coinname_controller.rb" coinname coinsym)
+    (genfile "app:controllers:admin:withdraws:plural_coinname_controller.rb" coinname coinsym)
     (genfile "app:views:admin:deposits:plural_coinname:index.html.slim" coinname coinsym)
     (genfile "app:views:admin:withdraws:plural_coinname:_table.html.slim" coinname coinsym)
     (genfile "app:views:admin:withdraws:plural_coinname:index.html.slim" coinname coinsym)
-    (genfile "app:views:admin:withdraws:plural_coinname:show.html.slim" coinname coinsym)
+    (genfile "app:views:admin:withdraws:plural_coinname:show.html.slim" coinname coinsym)))
     ; modify
-    (genfile "app:controllers:private:assets_controller.rb~" coinname coinsym)
-    (genfile "app:views:private:assets:_liability_tabs.html.slim~" coinname coinsym)
-    (genfile "app:views:private:assets:index.html.slim~" coinname coinsym)
-    (genfile "public:templates:funds:deposit.html~" coinname coinsym)
-    (genfile "public:templates:funds:withdraw.html~" coinname coinsym)))
+    ; (genfile "app:controllers:private:assets_controller.rb~" coinname coinsym)
+    ; (genfile "app:views:private:assets:_liability_tabs.html.slim~" coinname coinsym)
+    ; (genfile "app:views:private:assets:index.html.slim~" coinname coinsym)
+    ; (genfile "public:templates:funds:deposit.html~" coinname coinsym)
+    ; (genfile "public:templates:funds:withdraw.html~" coinname coinsym)))
